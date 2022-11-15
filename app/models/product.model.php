@@ -10,19 +10,17 @@ class ProductModel {
     public function getAllProducts() {
         $query = $this->db->prepare("SELECT  `nombre`, `precio`, `talle`, `descripcion`, `id_categoria_fk`, `imagen` FROM `products`");
         $query->execute();
-        $tasks = $query->fetchAll(PDO::FETCH_OBJ); 
-        return $tasks;
+        $products = $query->fetchAll(PDO::FETCH_OBJ); 
+        return $products;
     }
 
     public function getProductsById($id) {
         $query = $this->db->prepare("SELECT * FROM products WHERE id = ?");
         $query->execute([$id]);
-        $task = $query->fetch(PDO::FETCH_OBJ);
-        
-        return $task;
+        $productbyid = $query->fetch(PDO::FETCH_OBJ);
+        return $productbyid;
     }
 
-    
     public function insertProduct($name, $price, $size, $description, $category, $imagen ) {
         $query = $this->db->prepare('INSERT INTO products (nombre, precio, talle, descripcion, id_categoria_fk, imagen) VALUES (?, ?, ?, ?, ?, ?)');
         $query->execute([$name, $price, $size, $description, $category, $imagen]);
@@ -39,6 +37,7 @@ class ProductModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ); 
     }
+
     public function getPaginationByLimitAndOffset($limit, $offset) {
         $query = $this->db->prepare("SELECT * FROM products LIMIT $limit OFFSET $offset;");
         $query->execute();
