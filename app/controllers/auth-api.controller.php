@@ -26,14 +26,15 @@ class AuthApiController {
         return json_decode($this->data);
     }
 
-    public function getToken($params = null) {
+    public function getToken($params = null) {        
         $basic = $this->authHelper->getAuthHeader();
-        
+
         if(empty($basic)){
-            $this->view->response('No autorizado', 401);
+            $this->view->response('Error! No podés obtener el token porque no iniciaste sesión.', 401);
             return;
         }
         $basic = explode(" ",$basic); 
+        
         if($basic[0]!="Basic"){
             $this->view->response('La autenticación debe ser Basic', 401);
             return;

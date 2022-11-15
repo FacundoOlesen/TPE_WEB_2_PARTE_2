@@ -135,7 +135,7 @@ class ProductApiController
         if ($product)
             $this->view->response($product);
         else
-            $this->view->response("El producto con el id=$id no existe", 404);
+            $this->view->response("El producto con el ID= $id no existe", 404);
     }
 
     public function deleteProductById($params = null)
