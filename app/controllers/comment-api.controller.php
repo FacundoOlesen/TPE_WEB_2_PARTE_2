@@ -1,5 +1,5 @@
 <?php
-require_once './app/models/comments.model.php';
+require_once './app/models/comment.model.php';
 require_once './app/views/api.view.php';
 require_once './app/helpers/auth-api.helper.php';
 

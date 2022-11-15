@@ -8,8 +8,7 @@ class CommentsModel{
     }
 
     function getAllComments(){
-        $query = "SELECT a.*, b.* FROM comments a INNER JOIN products b ON a.id_producto = b.id";
-        $query = $this->db->prepare($query);
+        $query = $this->db->prepare ("SELECT a.*, b.* FROM comments a INNER JOIN products b ON a.id_producto = b.id");
         $query->execute();
         $comments = $query->fetchAll(PDO::FETCH_OBJ);
         return $comments;
