@@ -44,3 +44,9 @@ localhost/TPE2/api/products/?sortby=id&order=desc
 ```
 localhost/TPE2/api/products/?filterby=nombre&value=hola&sortby=id&order=desc
 ```
+### AUTENTICACIÓN POR TOKEN
+
+```
+Se debe solicitar el token con el verbo GET y la URL: localhost/TPE2/api/auth/token habiendo ingresado el usuario: admin y la pw: 1234.
+Para finalmente iniciar sesión ingresar el token en bearer token y tener la sesión con la URL localhost/TPE2/api/auth/.
+```
