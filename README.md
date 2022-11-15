@@ -47,7 +47,7 @@ localhost/TPE2/api/products/?filterby=nombre&value=hola&sortby=id&order=desc
 ### FILTRADO POR CATEGORÍA(Permite filtrar la columna de categorías asignandole un valor. EJ: columna id_categoria_fk y valor: Buzos)
 
 ```
-localhost/TPE2/api/products/?filterby=talle&value=XXL
+localhost/TPE2/api/products/?filterby=id_categoria_fk&value=buzos
 ```
 ### AUTENTICACIÓN POR TOKEN
 
