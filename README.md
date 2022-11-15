@@ -1,5 +1,5 @@
 # API-REST Endpoints 
-# Postman - endpoint de la API: http://localhost/TPE2/api/products
+
 # API-REST Endpoints COMENTARIOS DE LOS PRODUCTOS
 
 ### GET(Lista todos los comentarios mostando también a que producto se hizo ese comentario)
