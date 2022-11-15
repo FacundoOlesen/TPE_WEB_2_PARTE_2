@@ -55,7 +55,7 @@ class ProductApiController
                     $this->view->response($productsfiltered);
                 }
                 else {
-                    $this->view->response("Campo o valor no encotrado", 400);
+                    $this->view->response("Campo o valor no encontrado", 400);
                 }
             }
             catch (Exception $e) {
