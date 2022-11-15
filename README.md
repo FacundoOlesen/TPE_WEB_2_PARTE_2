@@ -1,6 +1,6 @@
 # API-REST Endpoints 
 
-# API-REST Endpoints COMENTARIOS DE LOS PRODUCTOS
+# COMENTARIOS DE LOS PRODUCTOS
 
 ### GET(Lista todos los comentarios mostando también a que producto se hizo ese comentario)
 
@@ -45,6 +45,12 @@ localhost/TPE2/api/comments/?sortby=id_comment&order=desc
 
 ```
 localhost/TPE2/api/comments/?filterby=comment&value=lindobuzo&sortby=id_comment&order=desc
+```
+### AUTENTICACIÓN POR TOKEN
+
+```
+Se debe solicitar el token con el verbo GET y la URL: localhost/TPE2/api/auth/token habiendo ingresado el usuario: admin y la pw: 1234.
+Para finalmente iniciar sesión ingresar el token en bearer token y tener la sesión con la URL localhost/TPE2/api/auth/.
 ```
 
 # API-REST Endpoints DE LOS PRODUCTOS
