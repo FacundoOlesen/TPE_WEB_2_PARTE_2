@@ -1,5 +1,5 @@
 # API-REST Endpoints 
-
+# Postman - endpoint de la API: http://localhost/TPE2/api/products
 ### GET(Lista todos los productos)
 
 ```
