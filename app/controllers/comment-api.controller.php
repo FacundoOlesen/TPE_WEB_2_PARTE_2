@@ -23,8 +23,8 @@ class CommentsApiController
     private function orderedComments($sortby, $order)  {
         if (($sortby == 'id_comment') || ($sortby == 'comment') || ($sortby == 'id_producto') && ($order == "asc") || ($order == "desc")) {
             try {
-                $productsordered = $this->model->getCommentsInOrder($sortby, $order);
-                $this->view->response($productsordered);
+                $commentsordered = $this->model->getCommentsInOrder($sortby, $order);
+                $this->view->response($commentsordered);
             } catch (Exception $e) {
                 $this->view->response("Error! Ingresaste mal el parametro sortby o el order.", 400);
                 die();
@@ -48,9 +48,9 @@ class CommentsApiController
 
         if (isset($filterby) && isset($value)) {
             try {
-                $productsfiltered = $this->model->filterByColumn($filterby, $value);
-                if ($productsfiltered != NULL) {
-                    $this->view->response($productsfiltered);
+                $commentsfiltered = $this->model->filterByColumn($filterby, $value);
+                if ($commentsfiltered != NULL) {
+                    $this->view->response($commentsfiltered);
                 } else {
                     $this->view->response("Campo o valor no encotrado", 400);
                 }
@@ -63,9 +63,9 @@ class CommentsApiController
     private function getCommentsFilteredAndOrdered($filterby, $value, $sortby, $order) {
         if ((isset($filterby) && isset($value)) && isset($sortby) && isset($order)) {
             try {
-                $productsfilteredandordered = $this->model->commentsFilteredAndSorted($filterby, $value, $sortby, $order);
-                if ($productsfilteredandordered != NULL) {
-                    $this->view->response($productsfilteredandordered);
+                $commentsfilteredandordered = $this->model->commentsFilteredAndSorted($filterby, $value, $sortby, $order);
+                if ($commentsfilteredandordered != NULL) {
+                    $this->view->response($commentsfilteredandordered);
                 } else {
                     $this->view->response("Campo o valor no encotrado", 400);
                 }
@@ -145,10 +145,10 @@ class CommentsApiController
             $this->view->response("Error! Para eliminar un comment debes estar logueado.", 401);
             return;
         }
-        $productbyid = $this->model->getCommentById($id);
-        if ($productbyid) {
+        $commentbyid = $this->model->getCommentById($id);
+        if ($commentbyid) {
             $this->model->deleteComment($id);
-            $this->view->response($productbyid, 200);
+            $this->view->response($commentbyid, 200);
         } else
             $this->view->response("El comment con el id=$id no existe", 404);
     }
