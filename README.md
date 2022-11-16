@@ -97,7 +97,7 @@ localhost/TPE2/api/products/?sortby=id&order=desc
 ### FILTRADO Y ORDENAMIENTO(Permite ordenar los datos por CUALQUIER columna y de manera ASCENDENTE o DESCENDENTE y a la vez filtrar cualquier columna con su valor.)
 
 ```
-localhost/TPE2/api/products/?filterby=nombre&value=L&sortby=id&order=desc
+localhost/TPE2/api/products/?filterby=talle&value=XXL&sortby=id&order=desc
 ```
 ### FILTRADO POR CATEGORÍA(Permite filtrar la columna de categorías asignandole un valor. EJ: columna id_categoria_fk y valor: Buzos)
 

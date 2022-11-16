@@ -118,6 +118,7 @@ class ProductApiController
         if((isset($_GET['limit'])) && isset($_GET['offset'])) {
             $limit = $_GET['limit'];
             $offset = $_GET['offset'];
+            $offset = ($offset) -1;
             $this->getPagination($limit, $offset);
         }
 
