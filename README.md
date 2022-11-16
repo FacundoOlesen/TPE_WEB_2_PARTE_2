@@ -30,10 +30,10 @@ localhost/TPE2/api/comments/2
 ```
 localhost/TPE2/api/comments/?limit=10&offset=2
 ```
-### FILTRADO(Permite filtrar cualquier columna aclarando tambien el dato que queremos traer. EJ: columna talles y valor: XXL)
+### FILTRADO(Permite filtrar cualquier columna aclarando tambien el dato que queremos traer. EJ: columna comment y valor: buenisimo)
 
 ```
-localhost/TPE2/api/comments/?filterby=comment&value=Lindobuzo
+localhost/TPE2/api/comments/?filterby=comment&value=buenisimo
 ```
 ### ORDENAMIENTO(Permite ordenar los datos por CUALQUIER columna y de manera ASCENDENTE o DESCENDENTE)
 
@@ -44,7 +44,7 @@ localhost/TPE2/api/comments/?sortby=id_comment&order=desc
 ### FILTRADO Y ORDENAMIENTO(Permite ordenar los datos por CUALQUIER columna y de manera ASCENDENTE o DESCENDENTE y a la vez filtrar cualquier columna con su valor.)
 
 ```
-localhost/TPE2/api/comments/?filterby=comment&value=lindobuzo&sortby=id_comment&order=desc
+localhost/TPE2/api/comments/?filterby=comment&value=buenisimo&sortby=id_comment&order=desc
 ```
 ### AUTENTICACIÓN POR TOKEN
 
@@ -83,10 +83,10 @@ localhost/TPE2/api/products/2
 ```
 localhost/TPE2/api/products/?limit=10&offset=2
 ```
-### FILTRADO(Permite filtrar cualquier columna aclarando tambien el dato que queremos traer. EJ: columna talles y valor: XXL)
+### FILTRADO(Permite filtrar cualquier columna aclarando tambien el dato que queremos traer. EJ: columna talles y valor: L)
 
 ```
-localhost/TPE2/api/products/?filterby=talle&value=XXL
+localhost/TPE2/api/products/?filterby=talle&value=L
 ```
 ### ORDENAMIENTO(Permite ordenar los datos por CUALQUIER columna y de manera ASCENDENTE o DESCENDENTE)
 
@@ -97,7 +97,7 @@ localhost/TPE2/api/products/?sortby=id&order=desc
 ### FILTRADO Y ORDENAMIENTO(Permite ordenar los datos por CUALQUIER columna y de manera ASCENDENTE o DESCENDENTE y a la vez filtrar cualquier columna con su valor.)
 
 ```
-localhost/TPE2/api/products/?filterby=nombre&value=hola&sortby=id&order=desc
+localhost/TPE2/api/products/?filterby=nombre&value=L&sortby=id&order=desc
 ```
 ### FILTRADO POR CATEGORÍA(Permite filtrar la columna de categorías asignandole un valor. EJ: columna id_categoria_fk y valor: Buzos)
 
