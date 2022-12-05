@@ -55,4 +55,9 @@ class ProductModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ); 
     }
+
+    public function modifyProduct($name, $price, $size, $description, $category, $id) {
+        $query = $this->db->prepare('UPDATE products SET nombre=? , precio=?, talle=?, descripcion=?, id_categoria_fk=? WHERE id = ?');
+        $query->execute([$name, $price, $size, $description, $category, $id]);
+    }
 }

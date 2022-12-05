@@ -3,8 +3,7 @@ require_once './app/models/comment.model.php';
 require_once './app/views/api.view.php';
 require_once './app/helpers/auth-api.helper.php';
 
-class CommentsApiController
-{
+class CommentsApiController {
     private $model;
     private $view;
     private $data;
@@ -33,6 +32,10 @@ class CommentsApiController
     }
 
     private function getPagination($limit, $offset)  {
+        if ((!is_numeric($_GET['limit']))||!is_numeric($_GET['offset'])){
+            $this->view->response("Error! Ingresaste mal el parametro limit o el offset.", 400);    
+            die();        
+        }
         if (isset($limit) && isset($offset)) {
             try {
                 $commentspaginated = $this->model->getPaginationByLimitAndOffset($limit, $offset);
@@ -45,23 +48,32 @@ class CommentsApiController
     }
 
     private function getFilterByColumn($filterby, $value) {
-
-        if (isset($filterby) && isset($value)) {
+        if (isset($filterby) && isset($value)&& ($filterby == 'id_comment') || ($filterby == 'comment') || 
+            ($filterby == 'id_producto')&&in_array($value, $this->model->getAllComments())) {
             try {
                 $commentsfiltered = $this->model->filterByColumn($filterby, $value);
                 if ($commentsfiltered != NULL) {
                     $this->view->response($commentsfiltered);
+                    die();
                 } else {
                     $this->view->response("Campo o valor no encotrado", 400);
+                    die();
                 }
             } catch (Exception $e) {
                 $this->view->response("Error! Ingresaste mal el filterby o el value.", 400);
             }
         }
+        if (($filterby != 'id_comment') || ($filterby != 'comment') || ($filterby != 'id_producto')) {
+            $this->view->response("Campo o valor no encotrado", 400);
+
+        }
     }
 
     private function getCommentsFilteredAndOrdered($filterby, $value, $sortby, $order) {
-        if ((isset($filterby) && isset($value)) && isset($sortby) && isset($order)) {
+        if (isset($filterby) && isset($value)&& ($filterby == 'id_comment') || ($filterby == 'comment') || ($filterby == 'id_producto')
+        &&in_array($value, $this->model->getAllComments()) && (($sortby == 'id_comment') || ($sortby == 'comment') || 
+        ($sortby == 'id_producto') && ($order == "asc") || ($order == "desc"))) {
+
             try {
                 $commentsfilteredandordered = $this->model->commentsFilteredAndSorted($filterby, $value, $sortby, $order);
                 if ($commentsfilteredandordered != NULL) {
@@ -108,7 +120,6 @@ class CommentsApiController
         if ((isset($_GET['limit'])) && isset($_GET['offset'])) {
             $limit = $_GET['limit'];
             $offset = $_GET['offset'];
-            $offset = ($offset) -1;
             $this->getPagination($limit, $offset);
         }
 
